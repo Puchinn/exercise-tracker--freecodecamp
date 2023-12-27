@@ -30,13 +30,14 @@ class UserServices {
     };
   }
 
-  async log(userId) {
+  async log(userId, queryParams = { from, to, limit }) {
     const user = await userRepository.findById(userId);
+    const filteredLogs = utils.queryLogs(user.log, queryParams);
     const log = {
       username: user.username,
       _id: user._id,
       count: user.log.length,
-      log: utils.exercisesWithoutID(user.log),
+      log: utils.exercisesWithoutID(filteredLogs),
     };
 
     return log;
