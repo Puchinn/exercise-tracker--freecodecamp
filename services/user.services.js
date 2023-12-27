@@ -25,7 +25,7 @@ class UserServices {
       username: user.username,
       _id: user._id,
       description: exerciseData.description,
-      duration: exerciseData.duration,
+      duration: Number(exerciseData.duration),
       date: validDate,
     };
   }
