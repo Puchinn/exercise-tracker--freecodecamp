@@ -18,4 +18,26 @@ function exercisesWithoutID(exercisesArray) {
   });
 }
 
-module.exports = { checkDate, exercisesWithoutID };
+function queryLogs(logArray, queries = { from, to, limit }) {
+  let log = [...logArray];
+  if (queries.from) {
+    const fromDate = new Date(queries.from);
+    log = log.filter((l) => {
+      const originalDate = new Date(l.date);
+      return originalDate > fromDate;
+    });
+  }
+  if (queries.to) {
+    const toDate = new Date(queries.to);
+    log = log.filter((l) => {
+      const originalDate = new Date(l.date);
+      return originalDate < toDate;
+    });
+  }
+  if (queries.limit) {
+    log = log.slice(0, queries.limit);
+  }
+  return log;
+}
+
+module.exports = { checkDate, exercisesWithoutID, queryLogs };
