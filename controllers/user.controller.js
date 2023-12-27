@@ -26,7 +26,8 @@ class UserController {
 
   async log(req, res) {
     const { id } = req.params;
-    const log = await userServices.log(id);
+    const { from, to, limit } = req.query;
+    const log = await userServices.log(id, { from, to, limit });
 
     res.json(log);
   }
