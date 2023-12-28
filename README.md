@@ -59,24 +59,26 @@ Now,just go to `http://localhost:3000/`, and you should see the following:
 
 - To create a user,just submit the **Create a New User** form with your username.
 
-```json
 you will get the following response:
+
+```json
 {
-    "username": "your username",
-    "_id": "your id"
+  "username": "your username",
+  "_id": "your id"
 }
 ```
 
 - To add an exercise, submit the **Add exercise** form with the fields `:_id`, `description`, `duration` and optionally `date`.
 
-```json
 you will get the following response:
+
+```json
 {
-    "_id": "your id",
-    "username": "your username",
-    "date": "Thu Dec 28 2023",
-    "duration": 10,
-    "description": "your description"
+  "_id": "your id",
+  "username": "your username",
+  "date": "Thu Dec 28 2023",
+  "duration": 10,
+  "description": "your description"
 }
 ```
 
